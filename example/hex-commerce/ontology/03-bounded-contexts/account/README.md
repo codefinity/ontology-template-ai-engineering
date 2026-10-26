@@ -89,6 +89,7 @@ classDiagram
 | [aggregates/](aggregates/) | `CustomerAccount` |
 | [value-objects.md](value-objects.md) | `CardBrand`, `CardExpiry` |
 | [business-rules.md](business-rules.md) | Defaults, last-entry protection, address and card validation |
+| [use-cases.md](use-cases.md) | Actor goals this context serves, step by step |
 | [commands.md](commands.md) | Address book and card commands |
 | [domain-events.md](domain-events.md) | Account book events |
 | [read-models.md](read-models.md) | `CurrentShopper`, `DeliverTo`, `SavedCards`, `RecentlyViewed` |

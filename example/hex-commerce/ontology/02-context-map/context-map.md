@@ -42,6 +42,7 @@ flowchart LR
     Account -->|"REL-13 CF"| Reviews
     Account -->|"REL-13 CF"| SellerOnboarding
     Catalog -->|"REL-14 CF"| Ordering
+    Shopping -->|"REL-15 CF (display only)"| CustomerService
 ```
 
 StoreConfig is a shared kernel with every context. Only one of those edges is drawn, to keep the diagram
@@ -65,6 +66,7 @@ readable.
 | REL-12 | [Catalog](../03-bounded-contexts/catalog/README.md) | [Reviews](../03-bounded-contexts/reviews/README.md) | CF | product id, baseline `rating` and `reviewCount` of `Catalog.Product` | none | `src/components/product/ReviewsSection.tsx` |
 | REL-13 | [Account](../03-bounded-contexts/account/README.md) | CustomerService, Reviews, SellerOnboarding | CF | `Account.CurrentShopper` | none | `src/data/account.ts` (`currentUser`) |
 | REL-14 | [Catalog](../03-bounded-contexts/catalog/README.md) | [Ordering](../03-bounded-contexts/ordering/README.md) | CF | `Catalog.ProductLookup`, for orders without captured prices | none | `src/data/account.ts` (`getOrderTotals`) |
+| REL-15 | [Shopping](../03-bounded-contexts/shopping/README.md) | [CustomerService](../03-bounded-contexts/customer-service/README.md) | CF | `Shopping.PurchasableItem` lookup, for item titles and pictures in issues | none | `src/components/support/CustomerServiceView.tsx` (`useStore`) |
 
 ## Shared kernel
 
@@ -92,8 +94,9 @@ not a shared kernel: each type belongs to the context named in its aggregate fil
 
 | Issue | Relationships | Effect | Direction for the target state |
 | --- | --- | --- | --- |
-| **Mutual dependency between Catalog and SellerCentral** | REL-04, REL-05 | Each depends on the other's model | Treat `Catalog.Product` as a separate published "storefront product" contract that both conform to |
+| **Mutual dependency between Catalog and SellerCentral** (ADR-003) | REL-04, REL-05 | Each depends on the other's model | Treat `Catalog.Product` as a separate published "storefront product" contract that both conform to |
 | **Ordering is hosted in the Account store** | REL-08 | Order logic sits next to the address book | Give Ordering its own store |
 | **Checkout is a non-atomic saga** | REL-07, REL-09 | A failed `recordSale` still places the order (ORD-BR-010) | Make placement transactional, or compensate |
 | **No back-propagation of fulfilment** | REL-09 | Seller dispatch never updates the shopper's order (ORD-BR-013) | `SellerCentral.SellerOrderDispatched` → Ordering policy |
 | **CustomerService and Reviews keep their stores in UI components** | REL-10, REL-11 | Other screens cannot read issues or reviews | Lift the stores into providers |
+| **CustomerService reads item details from Shopping** (found by `ontology.mjs boundaries`) | REL-15 | Issues about an item that is no longer sold lose their picture, and depend on the basket's lookup | Use the title captured in `CustomerService.OrderedItem`, and drop REL-15 |

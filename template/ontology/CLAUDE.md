@@ -24,15 +24,19 @@ keep the ontology true as the code changes.
 4. **Read the aggregate file and `business-rules.md`** for every rule your change touches. Check the
    rule's `Status`: `partial` and `not-implemented` rules describe intent that the code does not yet
    meet.
+5. **Read the use case** in `use-cases.md` that the change serves. Its alternative flows are the edge
+   cases to handle.
 
 Read only what the task needs. A one-context change rarely needs more than its README, its language
-and one aggregate.
+and one aggregate. The CLI saves reading: `node ontology/tools/ontology.mjs show <id>` prints one
+definition, `find <word>` locates a term, and `affected <code-file>` lists everything that cites a file.
 
 ## While writing code
 
 - Enforce a rule in the place its aggregate or `Code` field names. Do not re-implement another
   context's rule; use what that context exposes, as the context map describes.
-- Cite rule IDs in a short comment where a rule is enforced: `// ORD-BR-003`.
+- Cite rule IDs in a short comment where a rule is enforced: `// ORD-BR-003`. Put the ID in the name
+  of each test that checks it, too: `it('ORD-BR-003: next-day delivery arrives the following day', …)`.
 - Cross a context boundary only through the contract named in the context map (the Open Host
   Service, published model, translation layer and so on).
 - **Do not invent business rules.** If the ontology is silent or ambiguous about behaviour you need,
@@ -49,8 +53,13 @@ Update the ontology **in the same change** as the code. Use the table in
 | A rule (limit, validation, calculation, transition) | `business-rules.md` and the aggregate's invariants |
 | Data shape | Aggregate structure tables; `ubiquitous-language.md` for new words |
 | A status or transition | Aggregate lifecycle diagram and table |
+| A user journey or entry point | `use-cases.md` |
 | A call between contexts | `context-map.md`, `cross-context-flows.md`, both context READMEs |
 | File locations or identifiers | `code_refs`, `Code` columns, the context Code map |
+| A modelling choice | A decision record (`ontology.mjs new-decision`) |
+
+`node ontology/tools/ontology.mjs affected --git <base>` lists the ontology entries that cite the files
+you changed.
 
 Then set `last_reviewed` on each edited file, add a line to
 [00-meta/changelog.md](00-meta/changelog.md), and run:
@@ -79,7 +88,16 @@ The full rules are in [00-meta/conventions.md](00-meta/conventions.md).
 - Every file has front matter with `id`, `type`, `status` and `last_reviewed`. Context-scoped files
   also have `context`.
 - A `###` heading in a model file defines the concept `<Context>.<Name>`. In `business-rules.md`, a
-  `###` heading defines a rule `<CODE>-BR-<NNN>`.
+  `###` heading defines a rule `<CODE>-BR-<NNN>`; in `use-cases.md`, a use case `<CODE>-UC-<NN>`. Get
+  new numbers from `ontology.mjs next-id`.
 - Reference concepts as `` `<Context>.<Name>` `` in backticks, and link files relatively.
 - Never renumber or reuse an ID.
 - Keep UI layout, styling and framework details out, except in `Code` and *Implementation* fields.
+
+## Skills
+
+When the `ontology-*` skills are installed (`.claude/skills/`), prefer them for these jobs:
+`ontology-implement` (code a change), `ontology-sync` (update the ontology after a change),
+`ontology-review` (review a diff), `ontology-tests` (tests from rules), `ontology-use-cases`,
+`ontology-rule-miner`, `ontology-language`, `ontology-boundaries`, `ontology-reconcile`,
+`ontology-scaffold`, `ontology-extract`, `ontology-from-requirements` and `ontology-workshop`.

@@ -46,18 +46,20 @@ This folder is the single source of truth for the business language, model and r
 ontology/
 ├── README.md                 this index
 ├── CLAUDE.md                 instructions for Claude Code
-├── 00-meta/                  conventions, maintenance, extraction playbook, changelog
+├── 00-meta/                  conventions, maintenance, extraction playbook, changelog, decisions/
 ├── 01-domain/                domain vision, subdomains, actors, glossary
 ├── 02-context-map/           context map and cross-context flows
 ├── 03-bounded-contexts/      one folder per bounded context (copy _context-template)
-└── tools/validate.mjs        structural checks: node tools/validate.mjs
+└── tools/                    validate.mjs (checks), ontology.mjs (query, scaffold, analyse)
 ```
 
-## Checking the ontology
+## Checking and querying the ontology
 
 ```bash
 node ontology/tools/validate.mjs            # from the repository root
+node ontology/tools/ontology.mjs            # list of query, scaffold and analysis commands
 ```
 
-The validator checks front matter, unique IDs, that every referenced concept and rule exists, that
-links resolve, and that `code_refs` point at files that exist under `code_root`.
+The validator checks front matter, unique IDs, that every referenced concept, rule, use case and other
+id exists, that links resolve, and that `code_refs` point at files and symbols that exist under
+`code_root`.

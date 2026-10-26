@@ -60,19 +60,25 @@ It follows the strategic patterns of Domain-Driven Design:
 ontology/
 ├── README.md                 this index
 ├── CLAUDE.md                 instructions for Claude Code
-├── 00-meta/                  conventions, maintenance, extraction playbook, changelog
+├── 00-meta/                  conventions, maintenance, extraction playbook, changelog, decisions/
 ├── 01-domain/                domain vision, subdomains, actors, glossary
 ├── 02-context-map/           context map and cross-context flows
-├── 03-bounded-contexts/      one folder per bounded context (copy _context-template for a new one)
-└── tools/validate.mjs        structural checks: node tools/validate.mjs
+├── 03-bounded-contexts/      one folder per bounded context (new-context for a new one)
+└── tools/                    validate.mjs (checks), ontology.mjs (query, scaffold, analyse)
 ```
 
-## Checking the ontology
+Key decisions: [ADR-001](00-meta/decisions/ADR-001-describe-the-as-built-system.md) (as-built, with the
+BRD as status), [ADR-002](00-meta/decisions/ADR-002-separate-shopping-and-ordering.md),
+[ADR-003](00-meta/decisions/ADR-003-catalog-product-is-the-storefront-language.md).
+
+## Checking and querying the ontology
 
 ```bash
-node example/hex-commerce/ontology/tools/validate.mjs     # from the repository root
+node example/hex-commerce/ontology/tools/validate.mjs       # from the repository root
+node example/hex-commerce/ontology/tools/ontology.mjs stats # or show, find, gaps, boundaries, …
 ```
 
-The validator checks front matter, unique IDs, that every referenced concept and rule exists, that
-links resolve, and that `code_refs` and quoted code paths exist in the HexCommerce repository. Code checks
-are skipped with a notice when that repository is not checked out at `code_root`.
+The validator checks front matter, unique IDs, that every referenced concept, rule, use case and other id
+exists, that links resolve, and that `code_refs` and quoted code paths exist in the HexCommerce
+repository. Code checks are skipped with a notice when that repository is not checked out at
+`code_root`.

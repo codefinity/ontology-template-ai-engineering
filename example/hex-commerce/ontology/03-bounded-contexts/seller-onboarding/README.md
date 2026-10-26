@@ -76,6 +76,7 @@ classDiagram
 | [aggregates/](aggregates/) | `SellerApplication` |
 | [value-objects.md](value-objects.md) | `BusinessType`, `RegisteredAddress`, `ApplicationReference` |
 | [business-rules.md](business-rules.md) | Validation, statuses, access, profile derivation |
+| [use-cases.md](use-cases.md) | Actor goals this context serves, step by step |
 | [commands.md](commands.md) | Submit, approve, reject, reconsider, update business details |
 | [domain-events.md](domain-events.md) | Application lifecycle events |
 | [read-models.md](read-models.md) | `SellerAccountStatus`, `SellerProfile`, `ReviewQueue` |

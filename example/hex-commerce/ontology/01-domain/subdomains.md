@@ -48,7 +48,7 @@ quadrantChart
 
 ## Notes
 
-- Shopping and Ordering both serve SD-PURCHASING. They are separate contexts because the basket is a
+- Shopping and Ordering both serve SD-PURCHASING (ADR-002). They are separate contexts because the basket is a
   mutable intention, keyed by product, with live prices and stock. An order is an immutable record that
   snapshots prices, address and card.
 - SD-PAYMENTS and SD-FULFILMENT have no context yet. The BRD target state will need a Payments context

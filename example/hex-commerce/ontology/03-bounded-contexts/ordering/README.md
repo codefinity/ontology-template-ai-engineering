@@ -97,6 +97,7 @@ classDiagram
 | [aggregates/](aggregates/) | `Order` |
 | [value-objects.md](value-objects.md) | `OrderReference`, `OrderTotals`, `DeliverySpeed`, `AddressSnapshot`, `PaymentSnapshot` |
 | [business-rules.md](business-rules.md) | Placing, snapshot, delivery dates, statuses, history, purchase check |
+| [use-cases.md](use-cases.md) | Actor goals this context serves, step by step |
 | [commands.md](commands.md) | `PlaceOrder` |
 | [domain-events.md](domain-events.md) | `OrderPlaced` and who reacts to it |
 | [read-models.md](read-models.md) | Order history, detail, invoice, tracking, purchase check |

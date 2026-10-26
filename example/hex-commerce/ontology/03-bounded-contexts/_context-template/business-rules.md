@@ -25,3 +25,4 @@ Every business rule of this context, once. Format: 00-meta/conventions.md §6.
 - **Status:** implemented
 - **Code:** `<path>` (`<function>`)
 - **Source:** <Requirement ID, document, interview>
+- **Tests:** `<path/to/test-file>` (optional; tests that mention the rule ID are found anyway)

@@ -79,6 +79,7 @@ classDiagram
 | [aggregates/](aggregates/) | `StoreConfiguration` |
 | [value-objects.md](value-objects.md) | `Money`, `StoreClock` (shared kernel) |
 | [business-rules.md](business-rules.md) | Defaults, rounding, formatting, the fixed clock |
+| [use-cases.md](use-cases.md) | Actor goals this context serves, step by step |
 | [commands.md](commands.md) | Configuring the store |
 | [domain-events.md](domain-events.md) | None |
 | [read-models.md](read-models.md) | `StoreSettings`, `PriceDisplay` |

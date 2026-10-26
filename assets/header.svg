@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 400" width="1280" height="400" role="img" aria-labelledby="title desc">
+  <title id="title">Business Ontology Template for AI-Assisted Engineering</title>
+  <desc id="desc">A context map of four bounded contexts (Catalog, Shopping, Ordering, Seller Central) linked by
+    relationship patterns, with a business rule id traced into a line of code.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1220"/>
+      <stop offset="0.6" stop-color="#121a33"/>
+      <stop offset="1" stop-color="#1b1640"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.78" cy="0.45" r="0.45">
+      <stop offset="0" stop-color="#38bdf8" stop-opacity="0.16"/>
+      <stop offset="1" stop-color="#38bdf8" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1" fill="#94a3b8" fill-opacity="0.12"/>
+    </pattern>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#7dd3fc"/>
+    </marker>
+    <marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#fbbf24"/>
+    </marker>
+  </defs>
+
+  <!-- background -->
+  <rect width="1280" height="400" rx="20" fill="url(#bg)"/>
+  <rect width="1280" height="400" rx="20" fill="url(#dots)"/>
+  <rect width="1280" height="400" rx="20" fill="url(#glow)"/>
+
+  <g font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+    <!-- left: title -->
+    <text x="64" y="138" font-size="54" font-weight="700" fill="#f8fafc">Business Ontology</text>
+    <text x="64" y="198" font-size="54" font-weight="700" fill="#7dd3fc">Template</text>
+    <text x="64" y="240" font-size="24" fill="#94a3b8">for AI-assisted engineering</text>
+
+    <!-- pills -->
+    <g font-size="15" font-weight="600">
+      <rect x="64" y="268" width="196" height="34" rx="17" fill="#38bdf8" fill-opacity="0.12" stroke="#38bdf8" stroke-opacity="0.5"/>
+      <text x="162" y="290" text-anchor="middle" fill="#bae6fd">Domain-Driven Design</text>
+      <rect x="272" y="268" width="184" height="34" rx="17" fill="#a78bfa" fill-opacity="0.12" stroke="#a78bfa" stroke-opacity="0.5"/>
+      <text x="364" y="290" text-anchor="middle" fill="#ddd6fe">Ubiquitous language</text>
+      <rect x="468" y="268" width="176" height="34" rx="17" fill="#fbbf24" fill-opacity="0.12" stroke="#fbbf24" stroke-opacity="0.5"/>
+      <text x="556" y="290" text-anchor="middle" fill="#fde68a">Claude Code skills</text>
+    </g>
+
+    <text x="64" y="346" font-size="17" fill="#cbd5e1">One source of truth for what your business means, for people and for AI.</text>
+
+    <!-- right: context map -->
+    <g font-size="12" fill="#94a3b8">
+      <!-- edges -->
+      <line x1="840" y1="102" x2="924" y2="102" stroke="#7dd3fc" stroke-width="2" marker-end="url(#arrow)"/>
+      <text x="882" y="92" text-anchor="middle">PL &#8594; CF</text>
+
+      <line x1="852" y1="250" x2="955" y2="140" stroke="#7dd3fc" stroke-width="2" marker-end="url(#arrow)"/>
+      <text x="918" y="208">OHS</text>
+
+      <line x1="1070" y1="124" x2="1135" y2="186" stroke="#7dd3fc" stroke-width="2" marker-end="url(#arrow)"/>
+      <text x="1114" y="146">C/S</text>
+
+      <path d="M1170,254 C1170,290 1140,318 1106,318" fill="none" stroke="#fbbf24" stroke-width="2" stroke-dasharray="5 5" marker-end="url(#arrow-amber)"/>
+      <text x="1002" y="378" text-anchor="middle" fill="#fcd34d">rule id traced to where the code enforces it</text>
+    </g>
+
+    <!-- contexts -->
+    <g>
+      <rect x="700" y="70" width="140" height="64" rx="12" fill="#0f172a" stroke="#38bdf8" stroke-width="1.5"/>
+      <text x="716" y="99" font-size="17" font-weight="700" fill="#f1f5f9">Catalog</text>
+      <text x="716" y="120" font-size="12" fill="#7dd3fc">core &#183; CAT</text>
+
+      <rect x="930" y="70" width="140" height="64" rx="12" fill="#0f172a" stroke="#38bdf8" stroke-width="1.5"/>
+      <text x="946" y="99" font-size="17" font-weight="700" fill="#f1f5f9">Shopping</text>
+      <text x="946" y="120" font-size="12" fill="#7dd3fc">core &#183; SHP</text>
+
+      <rect x="1100" y="190" width="140" height="64" rx="12" fill="#0f172a" stroke="#38bdf8" stroke-width="1.5"/>
+      <text x="1116" y="219" font-size="17" font-weight="700" fill="#f1f5f9">Ordering</text>
+      <text x="1116" y="240" font-size="12" fill="#7dd3fc">ORD-BR-003</text>
+
+      <rect x="700" y="250" width="160" height="64" rx="12" fill="#0f172a" stroke="#a78bfa" stroke-width="1.5"/>
+      <text x="716" y="279" font-size="17" font-weight="700" fill="#f1f5f9">Seller Central</text>
+      <text x="716" y="300" font-size="12" fill="#c4b5fd">core &#183; SEL</text>
+    </g>
+
+    <!-- code card -->
+    <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="14">
+      <rect x="900" y="284" width="204" height="72" rx="10" fill="#020617" stroke="#334155"/>
+      <circle cx="916" cy="298" r="3.5" fill="#f87171"/>
+      <circle cx="928" cy="298" r="3.5" fill="#fbbf24"/>
+      <circle cx="940" cy="298" r="3.5" fill="#34d399"/>
+      <text x="914" y="324" fill="#fcd34d">// ORD-BR-003</text>
+      <text x="914" y="344" fill="#e2e8f0">deliveryDate(order)</text>
+    </g>
+  </g>
+</svg>

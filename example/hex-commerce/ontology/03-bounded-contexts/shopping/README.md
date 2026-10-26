@@ -89,6 +89,7 @@ classDiagram
 | [aggregates/](aggregates/) | `Basket`, `WishList` |
 | [value-objects.md](value-objects.md) | `PurchasableItem` |
 | [business-rules.md](business-rules.md) | Quantity limits, list rules, pricing of the basket |
+| [use-cases.md](use-cases.md) | Actor goals this context serves, step by step |
 | [commands.md](commands.md) | Add, change, remove, save for later, wish-list moves, clear |
 | [domain-events.md](domain-events.md) | Basket and list events, and clearing the basket after an order |
 | [read-models.md](read-models.md) | Detailed basket, totals, stock problems, units available |
@@ -101,6 +102,7 @@ classDiagram
 | REL-02 | downstream of | [Catalog](../catalog/README.md) | OHS + PL → CF | `Catalog.ProductLookup` |
 | REL-03 | downstream of | [SellerCentral](../seller-central/README.md) | OHS → CF | `SellerCentral.StorefrontProduct` |
 | REL-07 | upstream of | [Ordering](../ordering/README.md) | C/S | `Shopping.DetailedBasket`, `Shopping.BasketTotals`, `Shopping.StockProblems`, `Shopping.ClearBasket` |
+| REL-15 | upstream of | [CustomerService](../customer-service/README.md) | CF | `Shopping.PurchasableItem` lookup (display only) |
 
 ## Actors
 

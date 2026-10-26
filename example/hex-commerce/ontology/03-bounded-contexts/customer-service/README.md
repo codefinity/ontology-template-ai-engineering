@@ -81,6 +81,7 @@ classDiagram
 | [aggregates/](aggregates/) | `SupportIssue` |
 | [value-objects.md](value-objects.md) | `OrderedItem`, `SupportTopic` |
 | [business-rules.md](business-rules.md) | Eligibility, topics, statuses, acknowledgement, unread replies |
+| [use-cases.md](use-cases.md) | Actor goals this context serves, step by step |
 | [commands.md](commands.md) | Raise, reply, mark read |
 | [domain-events.md](domain-events.md) | Issue events and the automatic acknowledgement |
 | [read-models.md](read-models.md) | Contactable items, issue list, open count |
@@ -91,8 +92,7 @@ classDiagram
 | --- | --- | --- | --- | --- |
 | REL-11 | downstream of | [Ordering](../ordering/README.md) | ACL | `Ordering.OrderHistory`, translated into `CustomerService.OrderedItem` |
 | REL-13 | downstream of | [Account](../account/README.md) | CF | `Account.CurrentShopper` (first name) |
-
-Item titles and pictures are resolved through Shopping's item lookup (`getProduct`) for display only.
+| REL-15 | downstream of | [Shopping](../shopping/README.md) | CF | `Shopping.PurchasableItem` lookup, for item titles and pictures (display only; see the context map's Known issues) |
 
 ## Actors
 

@@ -63,6 +63,13 @@ For each context, in this order:
    even when the code has no event objects. Record how it is actually realised ("synchronous call from
    X").
 6. **Read models.** Selectors, queries and derived values that screens consume.
+7. **Use cases.** List the entry points: routes, pages, API handlers, CLI commands, message consumers.
+   Group them by actor goal (a goal often spans several screens). Write each as a use case with its
+   main flow, and with alternative flows taken from the validation messages and `if` branches you
+   found in step 4.
+
+`node tools/ontology.mjs mine-rules --path <src>` lists lines that look like rules, with whether a rule
+already cites them. Use it as a checklist, not as truth.
 
 ## 5. Map the contexts
 
@@ -79,14 +86,18 @@ question if the right answer is unclear.
 ## 7. Verify
 
 - Run the validator; it checks structure, IDs, links and `code_refs`.
+- Run `ontology.mjs gaps` (orphan commands and rules) and `ontology.mjs boundaries` (imports the context
+  map does not allow). Each finding is either a modelling gap or a real coupling problem worth recording.
 - Pick three rules at random and confirm each against the code by reading it.
 - Ask a domain expert to read one context's ubiquitous language aloud. Wherever they hesitate, there is
   a gap.
 
-## Prompt for Claude Code
+## With Claude Code
+
+The `ontology-extract` skill runs this playbook. Without the skills, use this prompt:
 
 > Read `ontology/00-meta/conventions.md` and this playbook. Then analyse the codebase at `<path>` and
 > produce the ontology: domain files first, then the context map, then one folder per bounded context
-> copied from `_context-template`. Base every rule on code you have read and cite its file. Mark
-> anything you inferred but could not confirm as `draft` and list it as an open question. Run
+> (`node ontology/tools/ontology.mjs new-context …`). Base every rule on code you have read and cite its
+> file. Mark anything you inferred but could not confirm as `draft` and list it as an open question. Run
 > `node ontology/tools/validate.mjs` and fix every error before finishing.

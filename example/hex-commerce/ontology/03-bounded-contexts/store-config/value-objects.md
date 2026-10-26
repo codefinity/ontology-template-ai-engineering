@@ -28,7 +28,8 @@ with the agreement of all context owners.
 - **Meaning:** The single source of "today" for every date-dependent rule (deal status, delivery dates,
   card expiry, order dates).
 - **Attributes:** today (date, `YYYY-MM-DD`)
-- **Constraints:** Fixed at 2025-03-10 UTC (CFG-BR-005). Dates are compared as `YYYY-MM-DD` strings.
+- **Constraints:** Fixed at 2025-03-10 UTC (CFG-BR-005). Dates are compared as `YYYY-MM-DD` strings,
+  and shown in UTC (CFG-BR-006).
 - **Equality:** by date
 - **Used by:** `SellerCentral.SellerDeal`, `Ordering.Order`, `Account.CustomerAccount`
 - **Code:** `src/lib/format.ts` (`REFERENCE_TODAY`, `daysFromReference`)

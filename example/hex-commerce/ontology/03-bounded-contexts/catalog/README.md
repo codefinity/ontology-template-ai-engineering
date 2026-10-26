@@ -99,6 +99,7 @@ classDiagram
 | [aggregates/](aggregates/) | `Product`, `Department`, `StoreDeal` |
 | [value-objects.md](value-objects.md) | `Badge`, `StockLevel`, `CatalogFilters`, `SortOrder`, `PriceBand` |
 | [business-rules.md](business-rules.md) | Discounts, ranking, search, filters, stock levels |
+| [use-cases.md](use-cases.md) | Actor goals this context serves, step by step |
 | [commands.md](commands.md) | None as-built: the catalogue is static |
 | [domain-events.md](domain-events.md) | None as-built |
 | [read-models.md](read-models.md) | Lookup, search, filtering, curation, deals |
@@ -148,6 +149,7 @@ classDiagram
 | --- | --- | --- |
 | Products have no publish date, so "newest" is the reverse of catalogue order | CAT-BR-009 | Newest-arrivals sort is not truthful |
 | Store deals do not change the price and count down from a fixed label | CAT-BR-014 | The advertised discount and countdown are marketing copy, not rules |
+| No check that a subcategory belongs to its department | CAT-BR-015 | Holds only because the data and the listing editor happen to respect it |
 | No catalogue maintenance (BRD P30), merchandising maintenance or store-deal maintenance (P29) | — | Catalogue changes need a code change |
 
 ## Open questions

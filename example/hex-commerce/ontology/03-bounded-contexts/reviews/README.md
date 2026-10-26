@@ -78,6 +78,7 @@ classDiagram
 | [aggregates/](aggregates/) | `Review`, `HelpfulVotes` |
 | [value-objects.md](value-objects.md) | `StarRating` |
 | [business-rules.md](business-rules.md) | Validation, verified purchase, votes, rating summary |
+| [use-cases.md](use-cases.md) | Actor goals this context serves, step by step |
 | [commands.md](commands.md) | Write, delete, vote, withdraw vote |
 | [domain-events.md](domain-events.md) | Review and vote events |
 | [read-models.md](read-models.md) | `ProductReviews`, `RatingSummary` |

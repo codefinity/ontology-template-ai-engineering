@@ -64,6 +64,7 @@ classDiagram
 | [aggregates/](aggregates/) | One file per aggregate: structure, invariants, lifecycle |
 | [value-objects.md](value-objects.md) | Value objects shared by several aggregates of this context |
 | [business-rules.md](business-rules.md) | Every rule, with status and code location |
+| [use-cases.md](use-cases.md) | Actor goals this context serves, step by step |
 | [commands.md](commands.md) | What actors can ask this context to do |
 | [domain-events.md](domain-events.md) | What happens here that matters, and policies that react |
 | [read-models.md](read-models.md) | Questions this context answers |

@@ -98,6 +98,7 @@ classDiagram
 | [aggregates/](aggregates/) | `SellerListing`, `SellerDeal`, `SellerOrder` |
 | [value-objects.md](value-objects.md) | `ListingCondition`, `ListingImages`, `DealWindow`, `SaleLine`, `SellerReference` |
 | [business-rules.md](business-rules.md) | Listing validation and status, deal rules and pricing, orders, earnings |
+| [use-cases.md](use-cases.md) | Actor goals this context serves, step by step |
 | [commands.md](commands.md) | Listing, deal and order commands, and `RecordSale` |
 | [domain-events.md](domain-events.md) | Events, and the policies that keep stock, deals and the storefront consistent |
 | [read-models.md](read-models.md) | Storefront feed, running deal, paused reason, seller summary |
